@@ -7,7 +7,7 @@ interface Props {
 
 export const BeerCard = ({ beer }: Props) => (
   <div className="BeerCard">
-    <img className="BeerImage" src={beer.image_url}/>
+    <img className="BeerImage" alt={beer.name} src={beer.image_url}/>
     <div className="BeerName">{beer.name}</div>
   </div>
 )
