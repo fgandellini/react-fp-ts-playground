@@ -1,5 +1,6 @@
 * {
   font-size: 16px;
+  color: black;
 }
 
 .App {
@@ -21,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: rgba(0,0,0,.15) 0px 4px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px 0px;
   margin: 10px;
   padding: 20px;
   border-radius: 2px;
@@ -30,4 +31,23 @@
 .BeerImage {
   height: 100px;
   margin-bottom: 10px;
+}
+
+.BeerName {
+  font-weight: bold;
+}
+
+.BeerIbu {
+  font-size: 12px;
+  color: gray;
+}
+
+.BeerHopName {
+  font-size: 12px;
+  color: skyblue;
+}
+
+.MissingData {
+  font-size: 10px;
+  color: red;
 }

@@ -14,7 +14,15 @@ const fetchData: ReaderTaskEither<AppConfig, string[], unknown> = (
   config: AppConfig
 ) =>
   tryCatch<string[], unknown>(
-    () => fetch(`${config.apiRoot}/beers`).then(res => res.json()),
+    () =>
+      fetch(`${config.apiRoot}/beers`)
+        .then(res => res.json())
+        .then(beers => {
+          // HACK: Remove the hops array from this beer, pretend missing data
+          const faked3 = beers[3]
+          delete faked3.ingredients.hops
+          return Object.values({ ...beers, 3: faked3 })
+        }),
     _reason => ['API Error']
   )
 

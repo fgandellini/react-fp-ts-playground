@@ -1,4 +1,4 @@
-import { none } from 'fp-ts/lib/Option'
+import { some } from 'fp-ts/lib/Option'
 import React from 'react'
 import './App.css'
 import { BeerCard } from './BeerCard'
@@ -10,7 +10,7 @@ import { UnsignedIntegerInput } from './UnsignedIntegerInput'
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Button label={none} />
+      <Button label={some('test')} />
       <UnsignedIntegerInput
         initialValue={3}
         onChange={v => console.log('change', v)}
@@ -20,8 +20,20 @@ const App: React.FC = () => {
       <BeerList
         className="BeerList"
         renderLoader={() => <div>Loading Beers...</div>}
-        renderBeers={beers => <>{beers.map(b => <BeerCard key={b.id} beer={b}/>)}</>}
-        renderErrors={errors => <>{errors.map(e => <Err key={e} message={e}/>)}</>}
+        renderBeers={beers => (
+          <>
+            {beers.map(b => (
+              <BeerCard key={b.id} beer={b} />
+            ))}
+          </>
+        )}
+        renderErrors={errors => (
+          <>
+            {errors.map(e => (
+              <Err key={e} message={e} />
+            ))}
+          </>
+        )}
       />
     </div>
   )
